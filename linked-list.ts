@@ -51,4 +51,21 @@ export default class LinkedList<T> {
     }
     return lastData;
   }
+
+  shift(): T | undefined {
+    if (!this.first) return undefined;
+
+    const firstData = this.first.data;
+
+    const secondNode = this.first.next;
+
+    if (secondNode) {
+      secondNode.previous = null;
+      this.first = secondNode;
+    } else {
+      this.first = null;
+      this.last = null;
+    }
+    return firstData;
+  }
 }

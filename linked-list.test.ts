@@ -9,13 +9,13 @@ describe('LinkedList', () => {
     expect(list.pop()).toBe(10)
   })
 
-  // xit('extract elements from the beginning of the list with shift', () => {
-  //   const list = new LinkedList<number>()
-  //   list.push(10)
-  //   list.push(20)
-  //   expect(list.shift()).toBe(10)
-  //   expect(list.shift()).toBe(20)
-  // })
+  it('extract elements from the beginning of the list with shift', () => {
+    const list = new LinkedList<number>()
+    list.push(10)
+    list.push(20)
+    expect(list.shift()).toBe(10)
+    expect(list.shift()).toBe(20)
+  })
 
   // xit('add/extract elements from the beginning of the list with unshift/shift', () => {
   //   const list = new LinkedList<number>()
