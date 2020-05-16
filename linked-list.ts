@@ -1,12 +1,12 @@
 class Node<U> {
-  previous: null | U;
+  previous: null | Node<U>;
   data: U;
-  next: null | U;
+  next: null | Node<U>;
 
-  constructor(input: U) {
-    this.previous = null;
-    this.data = input;
-    this.next = null;
+  constructor(data: U, previous?: Node<U>, next?: Node<U>) {
+    this.previous = previous || null;
+    this.data = data;
+    this.next = next || null;
   }
 }
 
@@ -20,16 +20,35 @@ export default class LinkedList<T> {
   }
 
   push(input: T): void {
-    this.last = new Node(input);
+    const newNode = new Node(input);
+
+    if (!this.first || !this.last) {
+      this.first = newNode;
+      this.last = newNode;
+      return;
+    }
+
+    const oldTail = this.last;
+
+    this.last.next = newNode;
+    this.last = newNode;
+    this.last.previous = oldTail;
   }
 
   pop(): T | undefined {
-    if (!this.last) {
-      return undefined;
-    }
-    // const returnVal = this.last.data;
-    // this.last = null;
-    // return returnVal;
-  }
+    if (!this.last) return undefined;
 
+    const lastData = this.last.data;
+
+    const nextToLastNode = this.last.previous;
+
+    if (nextToLastNode) {
+      nextToLastNode.next = null;
+      this.last = nextToLastNode;
+    } else {
+      this.first = null;
+      this.last = null;
+    }
+    return lastData;
+  }
 }
