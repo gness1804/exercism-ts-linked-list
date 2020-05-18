@@ -17,13 +17,13 @@ describe('LinkedList', () => {
     expect(list.shift()).toBe(20)
   })
 
-  // xit('add/extract elements from the beginning of the list with unshift/shift', () => {
-  //   const list = new LinkedList<number>()
-  //   list.unshift(10)
-  //   list.unshift(20)
-  //   expect(list.shift()).toBe(20)
-  //   expect(list.shift()).toBe(10)
-  // })
+  it('add/extract elements from the beginning of the list with unshift/shift', () => {
+    const list = new LinkedList<number>()
+    list.unshift(10)
+    list.unshift(20)
+    expect(list.shift()).toBe(20)
+    expect(list.shift()).toBe(10)
+  })
 
   // xit('unshift/pop', () => {
   //   const list = new LinkedList<number>()

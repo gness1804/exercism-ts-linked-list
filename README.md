@@ -63,3 +63,7 @@ Classic computer science topic
 
 It's possible to submit an incomplete solution so you can see how others have
 completed the exercise.
+
+## Credit (by GN):
+
+I got some help from [this handy source](https://itnext.io/generic-linkedlist-with-typescript-7bc8a14b63b6)

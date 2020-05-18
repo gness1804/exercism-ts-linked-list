@@ -1,9 +1,9 @@
-class Node<U> {
-  previous: null | Node<U>;
+class ListNode<U> {
+  previous: null | ListNode<U>;
   data: U;
-  next: null | Node<U>;
+  next: null | ListNode<U>;
 
-  constructor(data: U, previous?: Node<U>, next?: Node<U>) {
+  constructor(data: U, previous?: ListNode<U>, next?: ListNode<U>) {
     this.previous = previous || null;
     this.data = data;
     this.next = next || null;
@@ -11,8 +11,8 @@ class Node<U> {
 }
 
 export default class LinkedList<T> {
-  first: null | Node<T>;
-  last: null | Node<T>;
+  first: null | ListNode<T>;
+  last: null | ListNode<T>;
 
   constructor() {
     this.first = null;
@@ -20,7 +20,7 @@ export default class LinkedList<T> {
   }
 
   push(input: T): void {
-    const newNode = new Node(input);
+    const newNode = new ListNode(input);
 
     if (!this.first || !this.last) {
       this.first = newNode;
@@ -67,5 +67,21 @@ export default class LinkedList<T> {
       this.last = null;
     }
     return firstData;
+  }
+
+  unshift(input: T): void {
+    const newNode = new ListNode(input);
+
+    if (!this.first || !this.last) {
+      this.first = newNode;
+      this.last = newNode;
+      return;
+    }
+
+    const oldHead = this.first;
+
+    this.first.previous = newNode;
+    this.first = newNode;
+    this.first.next = oldHead;
   }
 }
