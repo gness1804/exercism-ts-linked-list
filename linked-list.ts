@@ -84,4 +84,24 @@ export default class LinkedList<T> {
     this.first = newNode;
     this.first.next = oldHead;
   }
+
+  count(): number {
+    if (!this.first || !this.last) {
+      return 0;
+    }
+
+    let current = this.first;
+
+    if (!current.next) {
+      return 1;
+    }
+
+    let count = 1;
+
+    while (current.next) {
+      current = current.next;
+      count++;
+    }
+    return count;
+  }
 }
