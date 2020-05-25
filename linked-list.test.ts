@@ -56,41 +56,41 @@ describe('LinkedList', () => {
     expect(list.count()).toBe(2)
   })
 
-  // xit('sets head/tail after popping last element', () => {
-  //   const list = new LinkedList<number>()
-  //   list.push(10)
-  //   list.pop()
-  //   list.unshift(20)
-  //   expect(list.count()).toBe(1)
-  //   expect(list.pop()).toBe(20)
-  // })
+  it('sets head/tail after popping last element', () => {
+    const list = new LinkedList<number>()
+    list.push(10)
+    list.pop()
+    list.unshift(20)
+    expect(list.count()).toBe(1)
+    expect(list.pop()).toBe(20)
+  })
 
-  // xit('sets head/tail after shifting last element', () => {
-  //   const list = new LinkedList<number>()
-  //   list.unshift(10)
-  //   list.shift()
-  //   list.push(20)
-  //   expect(list.count()).toBe(1)
-  //   expect(list.shift()).toBe(20)
-  // })
+  it('sets head/tail after shifting last element', () => {
+    const list = new LinkedList<number>()
+    list.unshift(10)
+    list.shift()
+    list.push(20)
+    expect(list.count()).toBe(1)
+    expect(list.shift()).toBe(20)
+  })
 
-  // xit('deletes the element with the specified value from the list', () => {
-  //   const list = new LinkedList<number>()
-  //   list.push(10)
-  //   list.push(20)
-  //   list.push(30)
-  //   list.delete(20)
-  //   expect(list.count()).toBe(2)
-  //   expect(list.pop()).toBe(30)
-  //   expect(list.shift()).toBe(10)
-  // })
+  it('deletes the element with the specified value from the list', () => {
+    const list = new LinkedList<number>()
+    list.push(10)
+    list.push(20)
+    list.push(30)
+    list.delete(20)
+    expect(list.count()).toBe(2)
+    expect(list.pop()).toBe(30)
+    expect(list.shift()).toBe(10)
+  })
 
-  // xit('deletes the only element', () => {
-  //   const list = new LinkedList<number>()
-  //   list.push(10)
-  //   list.delete(10)
-  //   expect(list.count()).toBe(0)
-  // })
+  it('deletes the only element', () => {
+    const list = new LinkedList<number>()
+    list.push(10)
+    list.delete(10)
+    expect(list.count()).toBe(0)
+  })
 
   // xit('delete does not modify the list if the element is not found', () => {
   //   const list = new LinkedList<number>()

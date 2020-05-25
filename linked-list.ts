@@ -104,4 +104,35 @@ export default class LinkedList<T> {
     }
     return count;
   }
+
+  delete(input: T): T | undefined {
+    const count = this.count();
+
+    if (!count || !this.first) return undefined;
+
+    if (count === 1) {
+      this.first = null;
+      this.last = null;
+      return input;
+    }
+
+    let current = this.first;
+
+    while (current.next) {
+      if (current.data === input) {
+        const nodeRightBehind = current.previous;
+        const nodeRightAfter = current.next;
+
+        if (nodeRightAfter) {
+          nodeRightAfter.previous = nodeRightBehind;
+        }
+        if (nodeRightBehind) {
+          nodeRightBehind.next = nodeRightAfter;
+        }
+
+        return current.data;
+      }
+      current = current.next;
+    }
+  }
 }
