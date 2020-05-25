@@ -92,10 +92,20 @@ describe('LinkedList', () => {
     expect(list.count()).toBe(0)
   })
 
-  // xit('delete does not modify the list if the element is not found', () => {
-  //   const list = new LinkedList<number>()
-  //   list.push(10)
-  //   list.delete(20)
-  //   expect(list.count()).toBe(1)
-  // })
+  it('delete does not modify the list if the element is not found', () => {
+    const list = new LinkedList<number>()
+    list.push(10)
+    list.delete(20)
+    expect(list.count()).toBe(1)
+  })
+
+  // this was added by me; not in the original
+  it('BONUS: delete does not modify the list if the element is not found -- multiple inputs', () => {
+    const list = new LinkedList<number>()
+    list.push(10)
+    list.push(30)
+    list.push(40)
+    list.delete(20)
+    expect(list.count()).toBe(3)
+  });
 })

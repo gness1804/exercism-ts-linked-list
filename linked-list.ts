@@ -108,9 +108,12 @@ export default class LinkedList<T> {
   delete(input: T): T | undefined {
     const count = this.count();
 
-    if (!count || !this.first) return undefined;
+    if (!count || !this.first) return;
 
     if (count === 1) {
+      // there is only the head but its value is not the input value. Just return undefined
+      if (this.first.data !== input) return;
+      // head's value is the input value; reset all nodes to null
       this.first = null;
       this.last = null;
       return input;
@@ -134,5 +137,6 @@ export default class LinkedList<T> {
       }
       current = current.next;
     }
+    return;
   }
 }
